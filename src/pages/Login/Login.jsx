@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+  const { signInUser } = useContext(AuthContext);
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {
@@ -10,9 +12,19 @@ const Login = () => {
   }
 
   const handleLogin = (e) => {
+    e.preventDefault();
     console.log('click login');
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    // create user in firebase
+    signInUser(email, password)
+      .then(result => {
+        console.log(result.user);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   return (
@@ -33,7 +45,7 @@ const Login = () => {
             </div>
           </div>
           <div>
-            <input type="submit" className="btn btn-primary  w-full" />
+            <input type="submit" className="btn btn-primary w-full  font-semibold text-xl" />
           </div>
         </form>
         <div className="mt-4 text-sm text-gray-600 text-center">

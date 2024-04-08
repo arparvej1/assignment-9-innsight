@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {
-   setPasswordShow(!passwordShow);
+    setPasswordShow(!passwordShow);
   }
 
   const handleRegister = (e) => {
@@ -15,6 +17,15 @@ const Register = () => {
     const photo_url = e.target.photo_url.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    // create user in firebase
+    createUser(email, password)
+      .then(result => {
+        console.log(result.user);
+      })
+      .catch(error => {
+        console.log(error);
+      });
     console.log('click Register');
   }
 
@@ -40,11 +51,11 @@ const Register = () => {
           <div>
             <span>Password:</span>
             <div className="flex justify-between items-center input input-bordered w-full bg-white">
-              <input type={passwordShow ? 'text' : 'password' } name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
+              <input type={passwordShow ? 'text' : 'password'} name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
             </div>
           </div>
           <div>
-            <input type="submit" className="btn btn-primary  w-full" />
+            <input type="submit" className="btn btn-primary w-full font-semibold text-xl" />
           </div>
         </form>
         <div className="mt-4 text-sm text-gray-600 text-center">
