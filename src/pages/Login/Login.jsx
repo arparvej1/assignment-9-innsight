@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {
@@ -13,7 +14,6 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('click login');
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -21,6 +21,18 @@ const Login = () => {
     signInUser(email, password)
       .then(result => {
         console.log(result.user);
+        e.target.reset();
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  const handleLoginWithGoogle = (e) => {
+    signInWithGoogle()
+      .then(result => {
+        console.log(result.user);
+        navigate('/');
       })
       .catch(error => {
         console.log(error);
@@ -41,7 +53,7 @@ const Login = () => {
           <div>
             <span>Password:</span>
             <div className="flex justify-between items-center input input-bordered w-full bg-white">
-              <input type={passwordShow ?  'text' : 'password'} name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
+              <input type={passwordShow ? 'text' : 'password'} name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
             </div>
           </div>
           <div>
@@ -64,6 +76,7 @@ const Login = () => {
           <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
             <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
               <button
+                onClick={handleLoginWithGoogle}
                 type="button"
                 className="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300"
               >
