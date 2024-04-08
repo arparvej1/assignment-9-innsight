@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 
+  const [passwordShow, setPasswordShow] = useState(false);
+  const handlePasswordShow = () => {
+   setPasswordShow(!passwordShow);
+  }
+
   const handleRegister = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
+    const photo_url = e.target.photo_url.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
     console.log('click Register');
   }
 
@@ -17,19 +27,21 @@ const Register = () => {
         <form onSubmit={handleRegister} className='flex flex-col gap-3 '>
           <div>
             <span>Full Name:</span>
-            <input type="text" placeholder="Full Name" className="input input-bordered w-full" />
+            <input type="text" name='name' placeholder="Full Name" className="input input-bordered w-full" />
           </div>
           <div>
             <span>Photo URL:</span>
-            <input type="text" placeholder="Photo URL" className="input input-bordered w-full" />
+            <input type="text" name='photo_url' placeholder="Photo URL" className="input input-bordered w-full" />
           </div>
           <div>
             <span>Email:</span>
-            <input type="email" placeholder="Email" className="input input-bordered w-full" />
+            <input type="email" name='email' placeholder="Email" className="input input-bordered w-full" />
           </div>
           <div>
             <span>Password:</span>
-            <input type="password" placeholder="Password" className="input input-bordered w-full" />
+            <div className="flex justify-between items-center input input-bordered w-full bg-white">
+              <input type={passwordShow ? 'text' : 'password' } name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
+            </div>
           </div>
           <div>
             <input type="submit" className="btn btn-primary  w-full" />

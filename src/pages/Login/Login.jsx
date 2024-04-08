@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
-  const handleLogin = () => {
+
+  const [passwordShow, setPasswordShow] = useState(false);
+  const handlePasswordShow = () => {
+    setPasswordShow(!passwordShow);
+  }
+
+  const handleLogin = (e) => {
     console.log('click login');
+    const email = e.target.email.value;
+    const password = e.target.password.value;
   }
 
   return (
@@ -15,11 +24,13 @@ const Login = () => {
         <form onSubmit={handleLogin} className='flex flex-col gap-3 '>
           <div>
             <span>Email:</span>
-            <input type="email" placeholder="Email" className="input input-bordered w-full" />
+            <input type="email" name='email' placeholder="Email" className="input input-bordered w-full" />
           </div>
           <div>
             <span>Password:</span>
-            <input type="password" placeholder="Password" className="input input-bordered w-full" />
+            <div className="flex justify-between items-center input input-bordered w-full bg-white">
+              <input type={passwordShow ?  'text' : 'password'} name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
+            </div>
           </div>
           <div>
             <input type="submit" className="btn btn-primary  w-full" />
@@ -27,7 +38,7 @@ const Login = () => {
         </form>
         <div className="mt-4 text-sm text-gray-600 text-center">
           <p>
-          New user?{" "}
+            New user?{" "}
             <Link to='/register' className="text-black hover:underline">Register here</Link>
           </p>
         </div>
