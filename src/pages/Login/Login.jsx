@@ -28,10 +28,13 @@ const Login = () => {
         console.log(error);
       });
   }
+
   const handleLoginWithGoogle = (e) => {
     signInWithGoogle()
       .then(result => {
-        console.log(result.user);
+        console.log('result', result);
+        console.log('2nd line', result.user);
+        console.log('2nd line', result.user.displayName);
         navigate('/');
       })
       .catch(error => {

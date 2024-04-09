@@ -3,7 +3,7 @@ import Navbar from "../pages/Shared/Navbar";
 
 const Root = () => {
   return (
-    <div>
+    <div className="max-w-screen-xl mx-5 lg:mx-auto">
       <Navbar></Navbar>
       <Outlet></Outlet>
     </div>

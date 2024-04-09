@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { RxAvatar } from "react-icons/rx";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -15,7 +17,14 @@ const Navbar = () => {
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/login'>Login</NavLink></li>
     <li><NavLink to='/register'>Register</NavLink></li>
-    <li><NavLink to='/profile'>Profile</NavLink></li>
+  </>
+  const pNavLinks = <>
+    {
+      user && <>
+        <li><NavLink to='/profile'>Profile</NavLink></li>
+        <li><NavLink to='/update-profile'>Update Profile</NavLink></li>
+      </>
+    }
   </>
 
   return (
@@ -33,36 +42,42 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {navLinks}
+          {navLinks} {pNavLinks}
         </ul>
       </div>
-
       <div className="navbar-end">
+        {
+          user ?
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" title={user.displayName || user.email} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img alt={user.email} src={user.photoURL || "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg"} />
+                </div>
+              </div>
+              <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                <li className='my-2'>
+                  {user.email}
+                </li>
+                {pNavLinks}
+                <li><span onClick={handleLogOut}>LogOut
+                  <span className="badge"><FaSignOutAlt /></span>
+                </span></li>
+              </ul>
+            </div>
+            :
+            <Link to='/login' className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-9 rounded-full">
+                  <RxAvatar className='text-4xl' />
+                </div>
+              </div>
+            </Link>
+        }
         <div>
           {
-            user && <span>{user.email}</span>
+            user ? <span onClick={handleLogOut} className='ml-2 btn'>LogOut <FaSignOutAlt /></span> : <Link className='btn' to='/login'>Login</Link>
           }
         </div>
-        {
-          user ? <span onClick={handleLogOut} className='btn'>LogOut</span> : <Link className='btn' to='/login'>Login</Link>
-        }
-      </div>
-      <div className="dropdown dropdown-end">
-        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </div>
-        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-          <li>
-            <a className="justify-between">
-              Profile
-              <span className="badge">New</span>
-            </a>
-          </li>
-          <li><a>Settings</a></li>
-          <li><a>Logout</a></li>
-        </ul>
       </div>
     </div>
   );
