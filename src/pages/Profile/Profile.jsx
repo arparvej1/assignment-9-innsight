@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -10,11 +11,14 @@ const Profile = () => {
         <h3 className='font-bold text-4xl'>My Profile</h3>
         <div className='flex flex-col md:flex-row items-center gap-5 bg-gray-100 p-8 rounded-xl'>
           <div className=''>
-            <img className='w-32 rounded-full' src={user.photoURL || "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg"} alt={user.displayName} />
+            <img className='w-32 h-32 rounded-full' src={user.photoURL || "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg"} alt={user.displayName} />
           </div>
           <div className='flex flex-col gap-2'>
             <h3 className='text-xl font-semibold'>{user.displayName}</h3>
             <p>{user.email}</p>
+          </div>
+          <div className='text-right  navbar-end'>
+            <Link to='/update-profile' className='text-xl font-semibold underline btn btn-ghost'>Edit Profile</Link>
           </div>
         </div>
         <div className='grid lg:grid-cols-2 gap-3'>
@@ -29,10 +33,6 @@ const Profile = () => {
               <div>
                 <p>Email:</p>
                 <p className=' font-semibold'>{user.email}</p>
-              </div>
-              <div>
-                <p>Phone Number:</p>
-                <p className=' font-semibold'>{user.phoneNumber || 'No Phone Number Found!'}</p>
               </div>
             </div>
           </div>
