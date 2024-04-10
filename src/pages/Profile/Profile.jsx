@@ -18,7 +18,7 @@ const Profile = () => {
             <p>{user.email}</p>
           </div>
           <div className='text-right  navbar-end'>
-            <Link to='/update-profile' className='text-xl font-semibold underline btn btn-ghost'>Edit Profile</Link>
+            <Link to='/update-profile' className='text-xl font-semibold underline btn btn-ghost text-blue-600'>Edit Profile</Link>
           </div>
         </div>
         <div className='grid lg:grid-cols-2 gap-3'>

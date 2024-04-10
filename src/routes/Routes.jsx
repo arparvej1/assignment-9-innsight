@@ -8,31 +8,40 @@ import Register from "../pages/Register/Register";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateProfile from "../pages/Profile/UpdateProfile";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ApartmentsDetails from "../pages/Apartments/ApartmentsDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('/apartments_data.json')
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login></Login>
       },
       {
-        path: '/register',
+        path: 'register',
         element: <Register></Register>
       },
       {
-        path: '/profile',
+        path: 'profile',
         element: <PrivateRoutes><Profile></Profile></PrivateRoutes>
       },
       {
-        path: '/update-profile',
+        path: 'update-profile',
         element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
+      },
+      {
+        path: 'apartments-details/:id',
+        element: <ApartmentsDetails></ApartmentsDetails>,
+        loader: () => fetch('/apartments_data.json')
       }
     ]
   },

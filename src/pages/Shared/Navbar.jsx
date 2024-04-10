@@ -43,10 +43,10 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost text-xl">InnSight</Link>
+        <Link to='/' className="btn bg-gradient-to-r from-gray-400 to-blue-500 text-xl md:text-2xl text-white">InnSight</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-xl">
           {navLinks} {pNavLinks}
         </ul>
       </div>
@@ -80,7 +80,7 @@ const Navbar = () => {
         }
         <div>
           {
-            alreadyRegister && user ? <span onClick={handleLogOut} className='ml-2 btn'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn' to='/login'>Login</Link>
+            alreadyRegister && user ? <span onClick={handleLogOut} className='ml-2 btn md:text-lg'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn md:text-lg' to='/login'>Login</Link>
           }
         </div>
       </div>

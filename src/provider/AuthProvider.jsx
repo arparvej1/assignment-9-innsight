@@ -12,6 +12,18 @@ const AuthProvider = ({ children }) => {
   const [avatarIcon, setAvatarIcon] = useState(false);
   const [alreadyRegister, setAlreadyRegister] = useState(true);
 
+  // ------------- Load Data -------------
+  // const [apartments, setApartments] = useState([]);
+  // useEffect(() => {
+  //   fetch('/apartments.json')
+  //     .then(res => {
+  //       console.log(res);
+  //       res.json();
+  //     })
+  //     .then(data => setApartments(data));
+  // }, [])
+  // console.log(apartments);
+
   const createUser = (email, password) => {
     setLoading(true);
     setAlreadyRegister(false);
@@ -73,7 +85,7 @@ const AuthProvider = ({ children }) => {
     signInUser,
     signInWithGoogle,
     signInWithGithub,
-    logOut
+    logOut 
   }
 
   return (

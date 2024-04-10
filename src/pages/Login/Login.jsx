@@ -71,7 +71,7 @@ const Login = () => {
       <h3 className="text-3xl font-semibold mb-6 text-black text-center">
         Login Now!
       </h3>
-      <div className='md:w-2/3 lg:w-2/5 rounded-2xl bg-gray-100 p-10 mx-5 md:mx-auto font-semibold'>
+      <div className='md:w-2/3 lg:w-2/5 rounded-2xl bg-gray-100 p-5 md:p-10 mx-5 md:mx-auto font-semibold'>
         <form onSubmit={handleLogin} className='flex flex-col gap-3 '>
           <div>
             <span>Email:</span>
@@ -98,9 +98,6 @@ const Login = () => {
           <p>or</p>
         </div>
         <div>
-          <h1 className="text-sm font-semibold mb-6 text-gray-500 text-center">
-            Join to Our Community with all time access and free{" "}
-          </h1>
           <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
             <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
               <button
