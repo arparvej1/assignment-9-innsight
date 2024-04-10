@@ -3,7 +3,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
 const UpdateProfile = () => {
-  const { user, updateUserInfo, setLoading } = useContext(AuthContext);
+  const { user, updateUserInfo, setLoading, setAvatarIcon } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleUpdateUser = (e) => {
@@ -17,6 +17,7 @@ const UpdateProfile = () => {
         console.log('click Update');
         setLoading(false);
         navigate('/profile');
+        setAvatarIcon(true);
       })
       .catch(error => {
         console.log(error);
@@ -30,7 +31,7 @@ const UpdateProfile = () => {
         <h3 className='font-bold text-4xl'>My Profile</h3>
         <div className='flex flex-col md:flex-row items-center gap-5 bg-gray-100 p-8 rounded-xl'>
           <div className=''>
-            <img className='w-32 rounded-full' src={user.photoURL || "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg"} alt={user.displayName} />
+            <img className='w-32 h-32 rounded-full' src={user.photoURL || "https://i.ibb.co/ZT5tByN/avatar-15-blue.jpg"} alt={user.displayName} />
           </div>
           <div className='flex flex-col gap-2'>
             <h3 className='text-xl font-semibold'>{user.displayName}</h3>

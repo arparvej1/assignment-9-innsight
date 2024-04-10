@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-  const { createUser, signInWithGoogle, updateUserInfo } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, updateUserInfo, setAvatarIcon, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [passwordShow, setPasswordShow] = useState(false);
@@ -25,8 +25,11 @@ const Register = () => {
         console.log(result.user);
         updateUserInfo(result.user, name, photo_url)
           .then(() => {
+            setAvatarIcon(true);
             e.target.reset();
-            navigate('/');
+            console.log('Registration Successfully!');
+            navigate('/login');
+            logOut();
           })
           .catch(error => {
             console.log(error);
@@ -35,7 +38,7 @@ const Register = () => {
       .catch(error => {
         console.log(error);
       });
-    console.log('click Register');
+    console.log('Request Registration');
   }
 
   const handleLoginWithGoogle = (e) => {
