@@ -50,10 +50,10 @@ const UpdateProfile = () => {
               <span>Photo URL:</span>
               <input type="text" name='photo_url' defaultValue={user.photoURL} placeholder="Photo URL" className="input input-bordered w-full" />
             </div>
-            <div>
+            {/* <div>
               <span>Email:</span>
               <input type="email" name='email' value={user.email} placeholder="Email" className="input input-bordered w-full" />
-            </div>
+            </div> */}
             <div>
               <input type="submit" value='Update Information' className="btn btn-primary w-full font-semibold text-xl" />
             </div>
