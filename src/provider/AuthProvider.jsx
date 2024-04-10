@@ -57,6 +57,7 @@ const AuthProvider = ({ children }) => {
     loading,
     avatarIcon,
     alreadyRegister,
+    setAlreadyRegister,
     setAvatarIcon,
     setLoading,
     createUser,

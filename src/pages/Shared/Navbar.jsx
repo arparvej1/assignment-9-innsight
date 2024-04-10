@@ -6,7 +6,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
 
-  const { user, logOut, avatarIcon, alreadyRegister} = useContext(AuthContext);
+  const { user, logOut, avatarIcon, alreadyRegister } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -15,8 +15,13 @@ const Navbar = () => {
   }
   const navLinks = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/login'>Login</NavLink></li>
-    <li><NavLink to='/register'>Register</NavLink></li>
+    {
+      !user && <>
+        <li><NavLink to='/login'>Login</NavLink></li>
+        <li><NavLink to='/register'>Register</NavLink></li>
+      </>
+
+    }
   </>
   const pNavLinks = <>
     {
@@ -47,7 +52,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-         alreadyRegister && user ?
+          alreadyRegister && user ?
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" title={user.displayName || user.email} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
@@ -75,7 +80,7 @@ const Navbar = () => {
         }
         <div>
           {
-           alreadyRegister && user ? <span onClick={handleLogOut} className='ml-2 btn'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn' to='/login'>Login</Link>
+            alreadyRegister && user ? <span onClick={handleLogOut} className='ml-2 btn'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn' to='/login'>Login</Link>
           }
         </div>
       </div>

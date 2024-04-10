@@ -1,11 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, alreadyRegister, setAlreadyRegister } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!alreadyRegister) {
+      toast.success('Registration Successfully!');
+      setAlreadyRegister(true);
+    }
+  }, []);
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {
@@ -21,6 +30,7 @@ const Login = () => {
     signInUser(email, password)
       .then(result => {
         console.log(result.user);
+        alert('Successfully Login!');
         e.target.reset();
         navigate('/');
       })
@@ -32,9 +42,9 @@ const Login = () => {
   const handleLoginWithGoogle = (e) => {
     signInWithGoogle()
       .then(result => {
-        console.log('result', result);
-        console.log('2nd line', result.user);
-        console.log('2nd line', result.user.displayName);
+        console.log(result.user);
+        alert('Successfully Login!');
+        // toast.success('Successfully Login!');
         navigate('/');
       })
       .catch(error => {
@@ -51,12 +61,12 @@ const Login = () => {
         <form onSubmit={handleLogin} className='flex flex-col gap-3 '>
           <div>
             <span>Email:</span>
-            <input type="email" name='email' placeholder="Email" className="input input-bordered w-full" />
+            <input type="email" name='email' placeholder="Email" className="input input-bordered w-full" required />
           </div>
           <div>
             <span>Password:</span>
             <div className="flex justify-between items-center input input-bordered w-full bg-white">
-              <input type={passwordShow ? 'text' : 'password'} name='password' placeholder="Password" className="w-full" /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
+              <input type={passwordShow ? 'text' : 'password'} name='password' placeholder="Password" className="w-full" required /><span onClick={handlePasswordShow}>{passwordShow ? <FaEye /> : <FaEyeSlash />}</span>
             </div>
           </div>
           <div>
@@ -126,6 +136,9 @@ const Login = () => {
               </button>
             </div>
           </div>
+        </div>
+        <div>
+          <ToastContainer />
         </div>
       </div>
     </>
