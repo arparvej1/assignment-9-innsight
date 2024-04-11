@@ -30,7 +30,7 @@ const ApartmentsDetails = () => {
             <span>{location}</span>
           </div>
           <div className="md:flex gap-3 items-center"><p className="font-bold mb-2 md:mb-0">Facilities: </p>
-            <p className="grid md:grid-cols-3 gap-1">
+            <p className="flex flex-col md:flex-row gap-1">
               {facilities.map((item, idx) => <span key={idx} className="capitalize text-[#0080f7] bg-[#97a3ff1a] px-2 py-1  rounded-xl">{item}</span>)}
             </p>
           </div>
