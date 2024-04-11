@@ -12,12 +12,12 @@ const ApartmentsDetails = () => {
   const { a_relevant_image, status, price, estate_title, beds, baths, area, location, segment_name, description, facilities } = apartment;
   return (
     <div className="flex flex-col justify-center gap-6 bg-[#f3f7fd] rounded-xl p-5 my-10">
-      <div className="bg-white rounded-2xl p-5 flex gap-3">
+      <div className="bg-white rounded-2xl p-5 flex flex-col md:flex-row gap-3">
         <h3 className='text-xl md:text-2xl font-medium'>{segment_name} : </h3>
         <h3 className='text-xl md:text-2xl font-medium'>{estate_title}</h3>
       </div>
       <div className="max-w-4xl mx-auto">
-        <img className="rounded-2xl" src={a_relevant_image} alt="" />
+        <img className="rounded-2xl" src={a_relevant_image} alt={estate_title} />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
@@ -31,7 +31,7 @@ const ApartmentsDetails = () => {
           </div>
           <div className="md:flex gap-3 items-center"><p className="font-bold mb-2 md:mb-0">Facilities: </p>
             <p className="grid md:grid-cols-3 gap-1">
-              {facilities.map(item => <span className="capitalize text-[#0080f7] bg-[#97a3ff1a] px-2 py-1  rounded-xl">{item}</span>)}
+              {facilities.map((item, idx) => <span key={idx} className="capitalize text-[#0080f7] bg-[#97a3ff1a] px-2 py-1  rounded-xl">{item}</span>)}
             </p>
           </div>
         </div>
@@ -50,9 +50,9 @@ const ApartmentsDetails = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-2xl p-10 flex flex-col gap-3">
+      <div className="bg-white rounded-2xl p-5 md:p-10 flex flex-col gap-3">
         <h4 className="text-xl font-semibold">Description</h4>
-        <p className="text-lg text-justify">{description}</p>
+        <p className="md:text-lg text-justify">{description}</p>
       </div>
     </div>
   );

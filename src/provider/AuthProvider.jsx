@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import PropTypes from 'prop-types'; 
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -11,18 +12,6 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [avatarIcon, setAvatarIcon] = useState(false);
   const [alreadyRegister, setAlreadyRegister] = useState(true);
-
-  // ------------- Load Data -------------
-  // const [apartments, setApartments] = useState([]);
-  // useEffect(() => {
-  //   fetch('/apartments.json')
-  //     .then(res => {
-  //       console.log(res);
-  //       res.json();
-  //     })
-  //     .then(data => setApartments(data));
-  // }, [])
-  // console.log(apartments);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -94,5 +83,9 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+AuthProvider.propTypes = {
+  children: PropTypes.node
+}
 
 export default AuthProvider;

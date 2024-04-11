@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom';
 import { IoIosBed } from "react-icons/io";
 import { FaBath } from "react-icons/fa6";
 import { FaArrowsAlt, FaMapMarkerAlt } from "react-icons/fa";
-
-
-
+import PropTypes from 'prop-types'; 
 
 const ApartmentsCard = ({ apartment }) => {
   const { id, a_relevant_image, status, price, estate_title, beds, baths, area, location } = apartment;
@@ -22,7 +20,7 @@ const ApartmentsCard = ({ apartment }) => {
           </div>
           <h3 className='text-xl font-semibold'>{price}</h3>
         </div>
-        <div className='flex justify-end gap-3'>
+        <div className='flex flex-col md:flex-row justify-end gap-3'>
           <div className='flex items-center gap-2'>
             <span className='bg-[#edf1f9] rounded-full p-2'><IoIosBed /></span>
             <span>{beds} Beds</span>
@@ -38,7 +36,7 @@ const ApartmentsCard = ({ apartment }) => {
           </div>
         </div>
         <hr />
-        <div className='flex md:flex-col lg:flex-row justify-between gap-2'>
+        <div className='flex flex-col lg:flex-row items-center justify-between gap-2'>
           <div className='flex gap-2 items-center'>
             <span><FaMapMarkerAlt /></span>
             <span>{location}</span>
@@ -51,5 +49,10 @@ const ApartmentsCard = ({ apartment }) => {
     </div>
   );
 };
+
+ApartmentsCard.propTypes = {
+  apartment: PropTypes.array
+}
+
 
 export default ApartmentsCard;

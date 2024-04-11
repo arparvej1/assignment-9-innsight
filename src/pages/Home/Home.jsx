@@ -1,17 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../provider/AuthProvider';
 import ApartmentsCard from '../Apartments/ApartmentsCard';
 
 const Home = () => {
   const apartments = useLoaderData();
-  // const { apartments } = useContext(AuthContext);
 
   console.log(apartments);
   return (
-    <div>
-      <h3 className='text-3xl font-bold'>This is my home.</h3>
+    <div className='my-10'>
       {/* apartments card section */}
+      <h3 className='mx-auto my-10 font-bold text-2xl text-center lg:text-4xl'>This is home. React New Version.</h3>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {
           apartments.map(apartment => <ApartmentsCard

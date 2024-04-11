@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'apartments-details/:id',
-        element: <ApartmentsDetails></ApartmentsDetails>,
+        element: <PrivateRoutes><ApartmentsDetails></ApartmentsDetails></PrivateRoutes>,
         loader: () => fetch('/apartments_data.json')
       }
     ]
