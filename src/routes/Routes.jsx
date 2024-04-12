@@ -10,6 +10,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateProfile from "../pages/Profile/UpdateProfile";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ApartmentsDetails from "../pages/Apartments/ApartmentsDetails";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
         path: 'apartments-details/:id',
         element: <PrivateRoutes><ApartmentsDetails></ApartmentsDetails></PrivateRoutes>,
         loader: () => fetch('/apartments_data.json')
+      },
+      {
+        path: 'blogs',
+        element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>,
+        loader: () => fetch('/blogs_data.json')
       }
     ]
   },

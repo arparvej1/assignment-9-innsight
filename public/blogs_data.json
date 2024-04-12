@@ -1,0 +1,74 @@
+[
+  {
+    "blogId": 1,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Luxury Riverside Apartment with Stunning Views",
+    "authorName": "John Doe",
+    "publishedDate": "Apr 10, 2023",
+    "blog_description": "Experience luxury living in this stunning riverside apartment. With breathtaking views, spacious interiors, and top-notch amenities, it's the perfect retreat for those seeking elegance and comfort. Conveniently located near city attractions, this apartment offers the epitome of upscale urban living. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac suscipit neque, ac tincidunt diam. Quisque in velit vitae metus lacinia pharetra. Sed vehicula, nulla eu vehicula sagittis, tortor dolor tincidunt lacus, at varius libero nulla et dolor. Cras condimentum, quam id luctus vestibulum, odio mauris mollis ex, id aliquet libero enim eget metus. Nulla facilisi."
+  },
+  {
+    "blogId": 2,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Modern City Loft in Prime Location",
+    "authorName": "Jane Smith",
+    "publishedDate": "Apr 15, 2023",
+    "blog_description": "Discover modern city living in this stylish loft apartment. Featuring sleek design, high ceilings, and an abundance of natural light, it offers a contemporary urban lifestyle. Situated in the heart of the city, with easy access to shops, restaurants, and entertainment, it's the ultimate in convenience and sophistication. Vestibulum sodales, ex quis ultricies consequat, risus nisi tincidunt eros, sit amet finibus leo elit vel urna. Nulla facilisi. Nullam consectetur nulla eu sapien tincidunt, et gravida ligula accumsan. Sed consequat, turpis quis laoreet pellentesque, eros nulla iaculis ex, eu mattis felis libero vel lacus."
+  },
+  {
+    "blogId": 3,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Family-Friendly Suburban Home with Spacious Backyard",
+    "authorName": "Michael Johnson",
+    "publishedDate": "Apr 20, 2023",
+    "blog_description": "Escape to suburban bliss in this spacious family home. With multiple bedrooms, a large backyard, and proximity to schools and parks, it's perfect for families seeking a peaceful retreat. Enjoy the tranquility of suburban living while still being within easy reach of city amenities. Make this house your home today! Fusce at sapien ac purus consequat ultricies. Nulla facilisi. Cras nec ante velit. Suspendisse potenti. Aenean nec efficitur turpis. Nullam et tellus sit amet justo luctus malesuada. Integer accumsan nisl eu orci vehicula, ac vestibulum felis lacinia. Nam sit amet libero nec metus varius feugiat."
+  },
+  {
+    "blogId": 4,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Elegant Downtown Penthouse with Panoramic Views",
+    "authorName": "Sophia Adams",
+    "publishedDate": "May 5, 2023",
+    "blog_description": "Indulge in luxury living in this exquisite downtown penthouse. Offering breathtaking panoramic views, high-end finishes, and exclusive amenities, it's a sanctuary in the heart of the city. With spacious living areas and unparalleled elegance, this penthouse is the epitome of sophisticated urban living. Duis sollicitudin euismod tellus at posuere. In et massa fermentum, varius lorem non, ullamcorper enim. Cras euismod ligula sit amet justo volutpat, nec feugiat orci dignissim. Sed ut tortor et felis ultricies iaculis. Sed auctor interdum ipsum, sit amet pharetra ex hendrerit nec. Nam ac quam hendrerit, ultrices turpis sit amet, tincidunt quam."
+  },
+  {
+    "blogId": 5,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Charming Coastal Cottage with Ocean Views",
+    "authorName": "Emma Roberts",
+    "publishedDate": "May 10, 2023",
+    "blog_description": "Escape to tranquility in this charming coastal cottage. Nestled along the shoreline, it offers breathtaking ocean views and a serene atmosphere. With cozy interiors and coastal-inspired decor, this cottage is perfect for those seeking a peaceful seaside retreat. Nulla quis felis non tortor sollicitudin tristique. Sed et purus sed tortor euismod rutrum. Curabitur ullamcorper consequat augue, id auctor quam consequat non. Vivamus nec feugiat lacus. Maecenas interdum scelerisque ipsum, nec rutrum nunc consectetur vel. Cras sit amet enim ullamcorper, sollicitudin magna sed, eleifend justo."
+  },
+  {
+    "blogId": 6,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Rustic Mountain Cabin Retreat",
+    "authorName": "William Johnson",
+    "publishedDate": "May 15, 2023",
+    "blog_description": "Experience the serenity of nature in this rustic mountain cabin retreat. Surrounded by towering pines and majestic peaks, it offers a cozy refuge from the hustle and bustle of daily life. With warm wood interiors and breathtaking mountain views, this cabin is the perfect getaway for outdoor enthusiasts. Ut tincidunt felis vel est pharetra, quis scelerisque lectus vulputate. Integer at arcu et sem tempor congue id quis odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed gravida purus id dolor placerat, vel tristique ligula ultrices. Integer in purus eget dolor dictum pretium vel sed arcu."
+  },
+  {
+    "blogId": 7,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Spacious Urban Loft with Industrial Charm",
+    "authorName": "Olivia Wilson",
+    "publishedDate": "June 1, 2023",
+    "blog_description": "Step into urban sophistication with this spacious loft boasting industrial charm. With exposed brick walls, high ceilings, and large windows, it offers a unique living experience. Located in the heart of the city, with trendy cafes and galleries just steps away, this loft is perfect for the modern urbanite."
+  },
+  {
+    "blogId": 8,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Tranquil Lakeside Retreat",
+    "authorName": "Benjamin Davis",
+    "publishedDate": "June 5, 2023",
+    "blog_description": "Escape to tranquility in this serene lakeside retreat. Surrounded by lush greenery and sparkling waters, it offers a peaceful oasis away from the hustle and bustle of city life. With cozy interiors and breathtaking lake views, this retreat is perfect for relaxation and rejuvenation."
+  },
+  {
+    "blogId": 9,
+    "blogImage": "https://resido-v2.smartdemowp.com/wp-content/uploads/2022/07/p-25.jpg",
+    "blogTitle": "Modern Beachfront Condo",
+    "authorName": "Sophie Carter",
+    "publishedDate": "June 10, 2023",
+    "blog_description": "Experience beachfront luxury in this modern condo overlooking the ocean. With sleek design, floor-to-ceiling windows, and direct beach access, it offers the ultimate coastal living experience. Located in a vibrant beach community, with restaurants and entertainment just moments away, this condo is perfect for those seeking a luxurious seaside lifestyle."
+  }
+]
