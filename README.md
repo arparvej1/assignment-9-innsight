@@ -23,7 +23,7 @@ Check out the live site [InnSight](https://assignment-9-innsight.web.app)
 
 * AOS Package
 * React Hook form
-* Swiper slider
+* Swiper Slider
 
 
 ## Github Link

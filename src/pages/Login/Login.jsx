@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useForm } from "react-hook-form";
+
 
 const Login = () => {
   const { signInUser, signInWithGoogle, signInWithGithub, alreadyRegister, setAlreadyRegister } = useContext(AuthContext);
@@ -44,7 +46,7 @@ const Login = () => {
       });
   }
 
-  const handleLoginWithGoogle = (e) => {
+  const handleLoginWithGoogle = () => {
     signInWithGoogle()
       .then(result => {
         console.log(result.user);
@@ -55,7 +57,7 @@ const Login = () => {
       });
   }
 
-  const handleLoginWithGithub = (e) => {
+  const handleLoginWithGithub = () => {
     signInWithGithub()
       .then(result => {
         console.log(result.user);
@@ -66,6 +68,11 @@ const Login = () => {
       });
   }
 
+  const { register, setFocus } = useForm()
+  useEffect(() => {
+    setFocus("focusEmail")
+  }, [setFocus])
+
   return (
     <>
       <h3 className="text-3xl font-semibold mb-6 text-black text-center">
@@ -75,7 +82,7 @@ const Login = () => {
         <form onSubmit={handleLogin} className='flex flex-col gap-3 '>
           <div>
             <span>Email:</span>
-            <input type="email" name='email' placeholder="Email" className="input input-bordered w-full" required />
+            <input type="email" {...register("focusEmail")} name='email' placeholder="Email" className="input input-bordered w-full" required />
           </div>
           <div>
             <span>Password:</span>

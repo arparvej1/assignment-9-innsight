@@ -2,12 +2,23 @@ import { Link } from 'react-router-dom';
 import { IoIosBed } from "react-icons/io";
 import { FaBath } from "react-icons/fa6";
 import { FaArrowsAlt, FaMapMarkerAlt } from "react-icons/fa";
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const ApartmentsCard = ({ apartment }) => {
   const { id, a_relevant_image, status, price, estate_title, beds, baths, area, location } = apartment;
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    });
+  }, [])
   return (
-    <div className='rounded-2xl border-2 overflow-hidden'>
+    <div
+      className='rounded-2xl border-2 overflow-hidden'
+      data-aos={id % 3 === 0 ? "fade-left" : id % 3 === 1 ? "fade-right" : "zoom-in-up" }
+    >
       <div>
         <img src={a_relevant_image} alt="" />
       </div>
