@@ -102,7 +102,7 @@ const Home = () => {
                   <p className='w-10/12 md:w-8/12 text-2xl courgette-regular text-center'>
                     {review.short_review}
                   </p>
-                  <div className="divider w-3/12 mx-auto">{review.reviewer_name}</div>
+                  <div className="divider md:w-3/12 mx-auto">{review.reviewer_name}</div>
                 </div>
               </SwiperSlide>
             ))

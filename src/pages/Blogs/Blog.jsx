@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { IoIosArrowRoundForward, IoIosCalendar } from "react-icons/io";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Blog = ({ blog }) => {
-  const { blogImage, blogTitle, authorName, publishedDate, blog_description } = blog;
+  const {blogId, blogImage, blogTitle, publishedDate, blog_description } = blog;
+  const urlTitle = blogTitle.split(' ').join('-')
   return (
-    <div className='border-2 rounded-2xl'>
+    <div className='border-2 rounded-2xl' 
+    data-aos={blogId % 3 === 0 ? "flip-up" : blogId % 3 === 1 ? "flip-down" : "zoom-in"}>
       <div className='flex flex-col gap-2 p-4'>
         <div>
           <img className='rounded-2xl' src={blogImage} alt={blogTitle} />
@@ -27,7 +30,7 @@ const Blog = ({ blog }) => {
             }
           </p>
           <p>
-          <Link className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
+          <Link to={`/blogs/${blogId}-${urlTitle}`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
           </p>
       </div>
     </div>

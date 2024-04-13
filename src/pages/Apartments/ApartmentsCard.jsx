@@ -17,7 +17,7 @@ const ApartmentsCard = ({ apartment }) => {
   return (
     <div
       className='rounded-2xl border-2 overflow-hidden'
-      data-aos={id % 3 === 0 ? "fade-left" : id % 3 === 1 ? "fade-right" : "zoom-in-up" }
+      data-aos={id % 3 === 0 ? "zoom-in-down" : id % 3 === 1 ? "zoom-in" : "zoom-in-up" }
     >
       <div>
         <img src={a_relevant_image} alt="" />
