@@ -26,7 +26,6 @@ const Home = () => {
       });
   }, []);
 
-  console.log(apartments);
   return (
     <div className='my-5'>
       {/* ---------- slider banner start ------------ */}
@@ -46,23 +45,23 @@ const Home = () => {
           modules={[Autoplay, Navigation, Pagination]}
           className="mySwiper">
           <SwiperSlide>
-            <div className="relative w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+            <div className="w-full">
+              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+            <div className="w-full">
+              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+            <div className="w-full">
+              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="relative w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+            <div className="w-full">
+              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
             </div>
           </SwiperSlide>
         </Swiper>

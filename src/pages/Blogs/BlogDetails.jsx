@@ -11,12 +11,12 @@ const BlogDetails = () => {
   const { blogImage, blogTitle, authorName, publishedDate, blog_description } = blog;
   return (
     <>
-      <div className='border-2 rounded-2xl my-10'>
-        <div className='flex flex-col gap-5 p-10'>
+      <div className='border-2 rounded-2xl my-5 md:my-10'>
+        <div className='flex flex-col gap-3 md:gap-5 p-5 md:p-8 lg:p-10'>
           <div>
             <img className='rounded-2xl md:max-w-2xl lg:max-w-4xl mx-auto' src={blogImage} alt={blogTitle} />
           </div>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-5">
             <div className="flex gap-2">
               <TbUserEdit className='text-2xl' />
               <span>
@@ -42,7 +42,7 @@ const BlogDetails = () => {
           </p>
         </div>
       </div>
-      <div className='border-2 rounded-2xl my-10 p-10 '>
+      <div className='border-2 rounded-2xl my-5 md:my-10 p-5 md:p-8 lg:p-10'>
         <h3 className='text-2xl font-bold mb-5'>
           Share with:
         </h3>

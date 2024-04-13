@@ -62,8 +62,7 @@ const ApartmentsCard = ({ apartment }) => {
 };
 
 ApartmentsCard.propTypes = {
-  apartment: PropTypes.array
+  apartment: PropTypes.object
 }
-
 
 export default ApartmentsCard;

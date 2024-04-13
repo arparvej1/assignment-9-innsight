@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +11,7 @@ const Login = () => {
   const { signInUser, signInWithGoogle, signInWithGithub, alreadyRegister, setAlreadyRegister } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loginFailedMsg, setLoginFailedMsg] = useState('');
+  const location = useLocation();
 
 
   useEffect(() => {
@@ -33,11 +34,12 @@ const Login = () => {
     // create user in firebase
     signInUser(email, password)
       .then(result => {
-        console.log(result.user);
-        alert('Successfully Login!');
+        console.log(result.user.email);
+        toast.success('Successfully Login!');
+        console.log('Successfully Login!');
         e.target.reset();
         setLoginFailedMsg('');
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
         console.log(error);
