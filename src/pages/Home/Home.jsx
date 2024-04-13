@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import './home.css';
+import { Helmet } from 'react-helmet-async';
 
 
 const Home = () => {
@@ -28,6 +29,9 @@ const Home = () => {
 
   return (
     <div className='my-5'>
+      <Helmet>
+        <title>InnSight | Home </title>
+      </Helmet>
       {/* ---------- slider banner start ------------ */}
       <div className='mb-10 mt-5'>
         <Swiper

@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar';
 import Footer from '../Shared/Footer';
+import { Helmet } from 'react-helmet-async';
 
 
 const ErrorPage = () => {
   return (
     <>
+      <Helmet>
+        <title> 404 error | Page Not Found! | InnSight </title>
+      </Helmet>
       <div className="max-w-screen-xl mx-5 lg:mx-auto">
         <Navbar></Navbar>
         <div>

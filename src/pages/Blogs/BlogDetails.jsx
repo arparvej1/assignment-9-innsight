@@ -1,6 +1,7 @@
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { IoIosCalendar } from "react-icons/io";
 import { TbUserEdit } from "react-icons/tb";
+import { Helmet } from 'react-helmet-async';
 
 
 const BlogDetails = () => {
@@ -11,6 +12,9 @@ const BlogDetails = () => {
   const { blogImage, blogTitle, authorName, publishedDate, blog_description } = blog;
   return (
     <>
+      <Helmet>
+        <title> {blogTitle} | InnSight </title>
+      </Helmet>
       <div className='border-2 rounded-2xl my-5 md:my-10'>
         <div className='flex flex-col gap-3 md:gap-5 p-5 md:p-8 lg:p-10'>
           <div>

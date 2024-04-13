@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateProfile = () => {
   const { user, updateUserInfo, setLoading, setAvatarIcon } = useContext(AuthContext);
@@ -27,6 +28,9 @@ const UpdateProfile = () => {
 
   return (
     <div className='md:4/5 lg:w-2/3 mx-auto'>
+      <Helmet>
+        <title> Update Profile | InnSight </title>
+      </Helmet>
       <div className='flex flex-col gap-3'>
         <h3 className='font-bold text-4xl'>My Profile</h3>
         <div className='flex flex-col md:flex-row items-center gap-5 bg-gray-100 p-8 rounded-xl'>

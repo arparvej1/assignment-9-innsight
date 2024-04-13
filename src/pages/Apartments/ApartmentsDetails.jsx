@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { IoIosBed } from "react-icons/io";
 import { FaBath } from "react-icons/fa6";
 import { FaArrowsAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const ApartmentsDetails = () => {
@@ -12,6 +13,9 @@ const ApartmentsDetails = () => {
   const { a_relevant_image, status, price, estate_title, beds, baths, area, location, segment_name, description, facilities } = apartment;
   return (
     <div className="flex flex-col justify-center gap-6 bg-[#f3f7fd] rounded-xl p-5 my-10">
+      <Helmet>
+        <title> {estate_title} | InnSight </title>
+      </Helmet>
       <div className="bg-white rounded-2xl p-5 flex flex-col md:flex-row gap-3">
         <h3 className='text-xl md:text-2xl font-medium'>{segment_name} : </h3>
         <h3 className='text-xl md:text-2xl font-medium'>{estate_title}</h3>

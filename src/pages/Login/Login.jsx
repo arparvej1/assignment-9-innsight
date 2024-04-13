@@ -5,6 +5,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -77,6 +78,9 @@ const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title> Login | InnSight </title>
+      </Helmet>
       <h3 className="text-3xl font-semibold mb-6 text-black text-center">
         Login Now!
       </h3>
