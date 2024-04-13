@@ -23,6 +23,7 @@ const Navbar = () => {
       </>
 
     }
+    <li><NavLink to='/about'>About</NavLink></li>
   </>
   const pNavLinks = <>
     {
