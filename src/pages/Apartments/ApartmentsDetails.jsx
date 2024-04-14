@@ -28,7 +28,7 @@ const ApartmentsDetails = () => {
         <div className="bg-white rounded-2xl p-5 flex flex-col gap-3">
           <p>
             <span className={`px-4 py-1  rounded-xl ${status === 'Sale' ? 'text-[#f74400] bg-[#f744001a]' : 'text-[#03a98a] bg-[#03a98a1a]'}`}>{status}</span></p>
-          <h3 className='text-xl font-semibold'>{price}</h3>
+          <h3 className='text-xl font-semibold'>Price: {price}</h3>
           <div className='flex gap-2 items-center'>
             <span><FaMapMarkerAlt /></span>
             <span>{location}</span>

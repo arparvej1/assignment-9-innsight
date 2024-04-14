@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ApartmentsCard from '../Apartments/ApartmentsCard';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +11,8 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import './home.css';
 import { Helmet } from 'react-helmet-async';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { IoIosArrowRoundForward, IoIosCalendar } from 'react-icons/io';
 
 
 const Home = () => {
@@ -50,22 +52,88 @@ const Home = () => {
           className="mySwiper">
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://i.ibb.co/JQW8Lxh/Modern-City-Loft-in-Prime-Location.jpg" className="w-full lg:h-[600px]" />
+              <div className='relative'>
+                <img src="https://i.ibb.co/z4SH5Hz/Tranquil-Suburban-Retreat.jpg" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
+                  <h3 className='text-3xl  font-medium '>Tranquil Suburban Retreat</h3>
+                  <h3 className='text-xl font-semibold'>Price: $3,000/month</h3>
+                  <div className='flex gap-2 items-center'>
+                    <span><FaMapMarkerAlt /></span>
+                    <span>Suburbia Haven</span>
+                  </div>
+                  <div className='flex'>
+                    <Link className='btn btn-primary' to='/apartments-details/2'>View Details</Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://i.ibb.co/d7Lpg73/Family-Friendly-Suburban-Home.jpg" className="w-full lg:h-[600px]" />
+              <div className='relative'>
+                <img src="https://i.ibb.co/Tkxf6Vv/Modern-Beachfront-Condo.jpg" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
+                  <h3 className='text-3xl  font-medium '>Modern Beachfront Condo</h3>
+                  <h3 className='text-xl font-semibold'>Author: Sophie Carter</h3>
+                  <div className="flex gap-2">
+                    <IoIosCalendar className='text-2xl' />
+                    <span>
+                      June 10, 2023
+                    </span>
+                  </div>
+                  <div className='max-w-96'>
+                    <p>
+                      Experience beachfront luxury in this modern condo overlooking the ocean. With sleek design,
+                    </p>
+                    <p>
+                      <Link to={`/`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://i.ibb.co/vmpqsTs/Family-Friendly-Suburban-Home-with-Spacious-Backyard.jpg" className="w-full lg:h-[600px]" />
+              <div className='relative'>
+                <img src="https://i.ibb.co/d7Lpg73/Family-Friendly-Suburban-Home.jpg" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
+                  <h3 className='text-3xl  font-medium '>Family-Friendly Suburban Home</h3>
+                  <h3 className='text-xl font-semibold'>Price: $320,000</h3>
+                  <div className='flex gap-2 items-center'>
+                    <span><FaMapMarkerAlt /></span>
+                    <span>Suburbia Meadows</span>
+                  </div>
+                  <div className='flex'>
+                    <Link className='btn btn-primary' to='/apartments-details/2'>View Details</Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://i.ibb.co/RN9hQ1X/Modern-City-Loft.jpg" className="w-full lg:h-[600px]" />
+              <div className='relative'>
+                <img src="https://i.ibb.co/h8rf3Cy/Rustic-Mountain-Cabin-Retreat.jpg" className="w-full lg:h-[600px]" />
+                <div className='absolute md:top-32 md:left-32 lg:top-48 lg:left-48 text-white bg-[#00000071] p-10 rounded-2xl flex flex-col gap-3'>
+                  <h3 className='text-3xl  font-medium '>Rustic Mountain Cabin Retreat</h3>
+                  <h3 className='text-xl font-semibold'>Author: William Johnson</h3>
+                  <div className="flex gap-2">
+                    <IoIosCalendar className='text-2xl' />
+                    <span>
+                      May 15, 2023
+                    </span>
+                  </div>
+                  <div className='max-w-96'>
+                    <p>
+                      Experience the serenity of nature in this rustic mountain cabin retreat. Surrounded by towering pines and majestic peaks,
+                    </p>
+                    <p>
+                      <Link to={`/`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -116,7 +184,6 @@ const Home = () => {
           }
         </Swiper>
       </div>
-
       {/* ---------- slider review End ------------ */}
     </div>
   );
