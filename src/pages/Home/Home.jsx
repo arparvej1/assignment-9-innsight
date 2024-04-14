@@ -50,22 +50,22 @@ const Home = () => {
           className="mySwiper">
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
+              <img src="https://i.ibb.co/JQW8Lxh/Modern-City-Loft-in-Prime-Location.jpg" className="w-full lg:h-[600px]" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
+              <img src="https://i.ibb.co/d7Lpg73/Family-Friendly-Suburban-Home.jpg" className="w-full lg:h-[600px]" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
+              <img src="https://i.ibb.co/vmpqsTs/Family-Friendly-Suburban-Home-with-Spacious-Backyard.jpg" className="w-full lg:h-[600px]" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="w-full">
-              <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full h-[600px]" />
+              <img src="https://i.ibb.co/RN9hQ1X/Modern-City-Loft.jpg" className="w-full lg:h-[600px]" />
             </div>
           </SwiperSlide>
         </Swiper>

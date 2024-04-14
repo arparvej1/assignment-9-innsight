@@ -100,10 +100,10 @@ const Register = () => {
       <Helmet>
         <title> Register | InnSight </title>
       </Helmet>
-      <h3 className="text-3xl font-semibold mb-6 text-black text-center">
+      <h3 className="text-3xl font-semibold mb-6 mt-3 text-black text-center">
         Register Now!
       </h3>
-      <div className='md:w-2/3 lg:w-2/5 rounded-2xl bg-gray-100 p-5 md:p-10 mx-5 md:mx-auto font-semibold'>
+      <div className='md:w-2/3 lg:w-2/5 rounded-2xl bg-gray-100 p-5 md:p-10 md:mx-auto font-semibold'>
         <form onSubmit={handleRegister} className='flex flex-col gap-3 '>
           <div>
             <span>Full Name:</span>
