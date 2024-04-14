@@ -1,17 +1,17 @@
 import { useLoaderData } from "react-router-dom";
 import Blog from "./Blog";
 import { Helmet } from "react-helmet-async";
-// import { useContext, useEffect } from "react";
-// import { AuthContext } from "../../provider/AuthProvider";
-// import { ToastContainer } from "react-toastify";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 
 const Blogs = () => {
   const blogs = useLoaderData();
-  // const { loginCheck } = useContext(AuthContext);
+  const { loginCheck } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   loginCheck();
-  // }, []);
+  useEffect(() => {
+    loginCheck();
+  }, []);
 
   return (
     <div>
@@ -27,7 +27,7 @@ const Blogs = () => {
           ></Blog>)
         }
       </div>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 };

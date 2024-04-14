@@ -75,6 +75,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     avatarIcon,
+    alreadyLogin,
     setAlreadyLogin,
     loginCheck,
     registerCheck,
