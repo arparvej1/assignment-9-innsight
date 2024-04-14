@@ -14,7 +14,6 @@ const Login = () => {
   const [loginFailedMsg, setLoginFailedMsg] = useState('');
   const location = useLocation();
 
-
   useEffect(() => {
     if (!alreadyRegister) {
       toast.success('Registration Successfully!');
@@ -53,7 +52,7 @@ const Login = () => {
     signInWithGoogle()
       .then(result => {
         console.log(result.user);
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
         console.log(error);
@@ -64,7 +63,7 @@ const Login = () => {
     signInWithGithub()
       .then(result => {
         console.log(result.user);
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
         console.log(error);
@@ -104,11 +103,11 @@ const Login = () => {
         <div className="mt-4 text-sm text-gray-600 text-center">
           <p>
             New user?{" "}
-            <Link to='/register' className="text-black hover:underline">Register here</Link>
+            <Link state={location?.state} to='/register' className="text-black hover:underline">Register here</Link>
           </p>
         </div>
         <div className="text-sm text-gray-600 text-center">
-          <p>or</p>
+          <div className="divider">OR</div>
         </div>
         <div>
           <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">

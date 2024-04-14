@@ -72,6 +72,10 @@ const Home = () => {
       </div>
       {/* ---------- slider banner End ------------ */}
       {/* apartments card section */}
+      <div className='my-10 text-center'>
+        <h3 className='font-bold text-2xl lg:text-3xl'>Explore Good Places</h3>
+        <p className='md:w-3/4 lg:1/2 mx-5 md:mx-auto mt-5'>Discover comfortable living and vibrant communities in our thoughtfully designed residential apartments, perfectly located to explore the best of their surroundings. Book your tour now!</p>
+      </div>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {
           apartments.map(apartment => <ApartmentsCard

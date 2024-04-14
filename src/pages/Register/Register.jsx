@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,9 +9,10 @@ import { Helmet } from 'react-helmet-async';
 
 
 const Register = () => {
-  const { createUser, signInWithGoogle, signInWithGithub, updateUserInfo, setAvatarIcon, setAlreadyRegister, logOut } = useContext(AuthContext);
+  const { createUser, signInWithGoogle, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, setAlreadyRegister, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordMsg, setPasswordMsg] = useState('');
+  const location = useLocation();
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {
@@ -48,6 +49,7 @@ const Register = () => {
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+        setLoading(true);
         setAlreadyRegister(false);
         logOut();
         updateUserInfo(result.user, name, photo_url)
@@ -55,7 +57,7 @@ const Register = () => {
             setAvatarIcon(true);
             e.target.reset();
             console.log('Registration Successfully!');
-            navigate('/login');
+            navigate(location?.state ? location.state : '/login');
           })
           .catch(error => {
             console.log(error);
@@ -72,7 +74,8 @@ const Register = () => {
     signInWithGoogle()
       .then(result => {
         console.log(result.user);
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
+
       })
       .catch(error => {
         console.log(error);
@@ -83,7 +86,7 @@ const Register = () => {
     signInWithGithub()
       .then(result => {
         console.log(result.user);
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
         console.log(error);
@@ -107,11 +110,11 @@ const Register = () => {
         <form onSubmit={handleRegister} className='flex flex-col gap-3 '>
           <div>
             <span>Full Name:</span>
-            <input type="text" {...register("fullName")} name='name' placeholder="Full Name" className="input input-bordered w-full" />
+            <input type="text" {...register("fullName")} name='name' placeholder="Full Name" className="input input-bordered w-full" required />
           </div>
           <div>
             <span>Photo URL:</span>
-            <input type="text" name='photo_url' placeholder="Photo URL" className="input input-bordered w-full" />
+            <input type="text" name='photo_url' placeholder="Photo URL" className="input input-bordered w-full" required />
           </div>
           <div>
             <span>Email:</span>
@@ -131,11 +134,11 @@ const Register = () => {
         <div className="mt-4 text-sm text-gray-600 text-center">
           <p>
             Already have an account?{" "}
-            <Link to='/login' className="text-black hover:underline">Login here</Link>
+            <Link state={location?.state} to='/login' className="text-black hover:underline">Login here</Link>
           </p>
         </div>
         <div className="text-sm text-gray-600 text-center">
-          <p>or</p>
+          <div className="divider">OR</div>
         </div>
         <div>
           <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
