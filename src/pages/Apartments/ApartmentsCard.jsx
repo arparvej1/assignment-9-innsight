@@ -31,7 +31,7 @@ const ApartmentsCard = ({ apartment }) => {
           </div>
           <h3 className='text-xl font-semibold'>{price}</h3>
         </div>
-        <div className='flex flex-col md:flex-row justify-end gap-3'>
+        <div className='flex flex-wrap md:justify-end gap-3'>
           <div className='flex items-center gap-2'>
             <span className='bg-[#edf1f9] rounded-full p-2'><IoIosBed /></span>
             <span>{beds} Beds</span>

@@ -3,6 +3,9 @@ import { IoIosBed } from "react-icons/io";
 import { FaBath } from "react-icons/fa6";
 import { FaArrowsAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { ToastContainer } from "react-toastify";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const ApartmentsDetails = () => {
@@ -11,6 +14,12 @@ const ApartmentsDetails = () => {
   const idInt = parseInt(id);
   const apartment = apartments.find(apartment => apartment.id === idInt);
   const { a_relevant_image, status, price, estate_title, beds, baths, area, location, segment_name, description, facilities } = apartment;
+  const { loginCheck } = useContext(AuthContext);
+
+  useEffect(() => {
+    loginCheck();
+  }, []);
+
   return (
     <div className="flex flex-col justify-center gap-6 bg-[#f3f7fd] rounded-xl p-5 my-10">
       <Helmet>
@@ -58,6 +67,7 @@ const ApartmentsDetails = () => {
         <h4 className="text-xl font-semibold">Description</h4>
         <p className="md:text-lg text-justify">{description}</p>
       </div>
+      <ToastContainer />
     </div>
   );
 };

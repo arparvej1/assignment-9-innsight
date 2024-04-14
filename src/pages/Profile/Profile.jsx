@@ -1,10 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loginCheck } = useContext(AuthContext);
+
+  useEffect(() => {
+    loginCheck();
+  }, []);
 
   return (
     <div className='md:4/5 lg:w-2/3 mx-auto'>
@@ -56,6 +61,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

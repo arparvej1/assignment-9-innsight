@@ -9,17 +9,19 @@ import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
-  const { signInUser, signInWithGoogle, signInWithGithub, alreadyRegister, setAlreadyRegister } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, signInWithGithub, registerCheck, setAlreadyLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loginFailedMsg, setLoginFailedMsg] = useState('');
   const location = useLocation();
 
   useEffect(() => {
-    if (!alreadyRegister) {
-      toast.success('Registration Successfully!');
-      setAlreadyRegister(true);
-    }
+    registerCheck();
   }, []);
+
+  const { register, setFocus } = useForm();
+  useEffect(() => {
+    setFocus("focusEmail")
+  }, [setFocus]);
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {
@@ -39,6 +41,7 @@ const Login = () => {
         console.log('Successfully Login!');
         e.target.reset();
         setLoginFailedMsg('');
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
@@ -69,11 +72,6 @@ const Login = () => {
         console.log(error);
       });
   }
-
-  const { register, setFocus } = useForm()
-  useEffect(() => {
-    setFocus("focusEmail")
-  }, [setFocus])
 
   return (
     <>
@@ -163,9 +161,9 @@ const Login = () => {
           </div>
         </div>
         <div>
-          <ToastContainer />
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

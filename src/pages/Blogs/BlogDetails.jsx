@@ -2,6 +2,9 @@ import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { IoIosCalendar } from "react-icons/io";
 import { TbUserEdit } from "react-icons/tb";
 import { Helmet } from 'react-helmet-async';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
+import { ToastContainer } from 'react-toastify';
 
 
 const BlogDetails = () => {
@@ -10,6 +13,12 @@ const BlogDetails = () => {
   const idInt = parseInt(blogId);
   const blog = blogs.find(blog => blog.blogId === idInt);
   const { blogImage, blogTitle, authorName, publishedDate, blog_description } = blog;
+  const { loginCheck } = useContext(AuthContext);
+
+  useEffect(() => {
+    loginCheck();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -132,7 +141,7 @@ const BlogDetails = () => {
           </Link>
         </div>
       </div>
-
+      <ToastContainer />
     </>
   );
 };

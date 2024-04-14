@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
 
 const UpdateProfile = () => {
-  const { user, updateUserInfo, setLoading, setAvatarIcon } = useContext(AuthContext);
+  const { user, updateUserInfo, setLoading, setAvatarIcon, loginCheck } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    loginCheck();
+  }, []);
 
   const handleUpdateUser = (e) => {
     e.preventDefault();
@@ -64,6 +69,7 @@ const UpdateProfile = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

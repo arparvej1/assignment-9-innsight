@@ -1,7 +1,8 @@
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -11,37 +12,48 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [avatarIcon, setAvatarIcon] = useState(false);
-  const [alreadyRegister, setAlreadyRegister] = useState(true);
+  const [alreadyRegister, setAlreadyRegister] = useState(false);
+  const [alreadyLogin, setAlreadyLogin] = useState(false);
+
+  const loginCheck = () => {
+    if (alreadyLogin) {
+      toast.success('Login Successfully!');
+      setAlreadyLogin(false);
+    }
+  }
+
+  const registerCheck = () => {
+    if (alreadyRegister) {
+      toast.success('Registration Successfully!');
+      setAlreadyRegister(false);
+    }
+  }
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
   const updateUserInfo = (cUser, displayNameNew, photoURLNew) => {
-    console.log(cUser);
     setLoading(true);
     return updateProfile(cUser, {
-      displayName: displayNameNew, 
+      displayName: displayNameNew,
       photoURL: photoURLNew
     });
   }
 
   const signInUser = (email, password) => {
     setLoading(true);
-    setAlreadyRegister(true);
     return signInWithEmailAndPassword(auth, email, password);
   }
 
   const signInWithGoogle = () => {
     setLoading(true);
-    setAlreadyRegister(true);
     setAvatarIcon(false);
     return signInWithPopup(auth, googleProvider);
   }
 
   const signInWithGithub = () => {
     setLoading(true);
-    setAlreadyRegister(true);
     setAvatarIcon(false);
     return signInWithPopup(auth, githubProvider);
   }
@@ -63,7 +75,9 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     avatarIcon,
-    alreadyRegister,
+    setAlreadyLogin,
+    loginCheck,
+    registerCheck,
     setAlreadyRegister,
     setAvatarIcon,
     setLoading,
@@ -72,7 +86,7 @@ const AuthProvider = ({ children }) => {
     signInUser,
     signInWithGoogle,
     signInWithGithub,
-    logOut 
+    logOut
   }
 
   return (

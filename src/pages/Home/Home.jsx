@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import ApartmentsCard from '../Apartments/ApartmentsCard';
-
+import { ToastContainer } from 'react-toastify';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -8,17 +8,20 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import required modules
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './home.css';
 import { Helmet } from 'react-helmet-async';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoIosArrowRoundForward, IoIosCalendar } from 'react-icons/io';
+import { AuthContext } from '../../provider/AuthProvider';
 
 
 const Home = () => {
+  const { loginCheck } = useContext(AuthContext);
   const apartments = useLoaderData();
   const [reviews, setReviews] = useState([])
   useEffect(() => {
+    loginCheck();
     fetch('/review_data.json')
       .then(res => res.json())
       .then(data => {
@@ -86,7 +89,7 @@ const Home = () => {
                       Experience beachfront luxury in this modern condo overlooking the ocean. With sleek design,
                     </p>
                     <p>
-                      <Link to={`/`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
+                      <Link to={`/blog-details/9-Modern-Beachfront-Condo`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
                     </p>
                   </div>
                 </div>
@@ -105,7 +108,7 @@ const Home = () => {
                     <span>Suburbia Meadows</span>
                   </div>
                   <div className='flex'>
-                    <Link className='btn btn-primary' to='/apartments-details/2'>View Details</Link>
+                    <Link className='btn btn-primary' to='/apartments-details/6'>View Details</Link>
                   </div>
                 </div>
               </div>
@@ -129,7 +132,7 @@ const Home = () => {
                       Experience the serenity of nature in this rustic mountain cabin retreat. Surrounded by towering pines and majestic peaks,
                     </p>
                     <p>
-                      <Link to={`/`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
+                      <Link to={`/blog-details/6-Rustic-Mountain-Cabin-Retreat`} className='flex gap-1 items-center text-[#1266e3] font-semibold'><span>Continue</span> <IoIosArrowRoundForward className='text-3xl' /></Link>
                     </p>
                   </div>
                 </div>
@@ -174,7 +177,7 @@ const Home = () => {
                   <div className='border-2 rounded-full'>
                     <img className="w-32 h-32 rounded-full p-2" src={review.reviewer_img} />
                   </div>
-                  <p className='w-10/12 md:w-8/12 text-2xl courgette-regular text-center'>
+                  <p className='w-10/12 md:w-8/12 text-xl md:text-2xl courgette-regular text-center'>
                     {review.short_review}
                   </p>
                   <div className="divider md:w-3/12 mx-auto">{review.reviewer_name}</div>
@@ -185,6 +188,7 @@ const Home = () => {
         </Swiper>
       </div>
       {/* ---------- slider review End ------------ */}
+      <ToastContainer />
     </div>
   );
 };

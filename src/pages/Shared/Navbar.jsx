@@ -6,7 +6,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
 
-  const { user, logOut, avatarIcon, alreadyRegister } = useContext(AuthContext);
+  const { user, logOut, avatarIcon } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -27,7 +27,7 @@ const Navbar = () => {
   </>
   const pNavLinks = <>
     {
-      user && alreadyRegister && <>
+      user && <>
         <li><NavLink to='/profile'>Profile</NavLink></li>
         <li><NavLink to='/update-profile'>Update Profile</NavLink></li>
       </>
@@ -45,7 +45,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to='/' className="btn bg-gradient-to-r from-gray-400 to-blue-500 text-xl md:text-2xl text-white">InnSight</Link>
+        <Link to='/' className="btn bg-gradient-to-r from-sky-400 to-blue-500 text-xl md:text-2xl text-white">InnSight</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-xl">
@@ -54,7 +54,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-          alreadyRegister && user ?
+          user ?
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" title={user.displayName || user.email} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
@@ -82,7 +82,7 @@ const Navbar = () => {
         }
         <div>
           {
-            alreadyRegister && user ? <span onClick={handleLogOut} className='ml-2 btn md:text-lg'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn md:text-lg' to='/login'>Login</Link>
+            user ? <span onClick={handleLogOut} className='ml-2 btn md:text-lg'>LogOut <FaSignOutAlt className='hidden md:block' /></span> : <Link className='btn md:text-lg' to='/login'>Login</Link>
           }
         </div>
       </div>

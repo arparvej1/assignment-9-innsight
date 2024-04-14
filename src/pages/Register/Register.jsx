@@ -50,7 +50,7 @@ const Register = () => {
       .then(result => {
         console.log(result.user);
         setLoading(true);
-        setAlreadyRegister(false);
+        setAlreadyRegister(true);
         logOut();
         updateUserInfo(result.user, name, photo_url)
           .then(() => {
