@@ -165,7 +165,7 @@ const Home = () => {
       </div>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {
-          apartments.map(apartment => <ApartmentsCard
+          apartments.sort(function () { return 0.5 - Math.random() }).map(apartment => <ApartmentsCard
             key={apartment.id}
             apartment={apartment}
           ></ApartmentsCard>)
@@ -209,7 +209,7 @@ const Home = () => {
         <div className='my-10 text-center'>
           <h3 className='font-bold text-2xl lg:text-3xl'>Blogs By InnSight</h3>
           <p className='md:w-3/4 lg:1/2 mx-5 md:mx-auto mt-5'>
-            Experience unparalleled comfort and elegance with InnSight's curated accommodations, ranging from luxurious riverside apartments to rustic mountain cabin retreats. Unforgettable experiences await at every destination.</p>
+            Experience unparalleled comfort and elegance with {`InnSight's`} curated accommodations, ranging from luxurious riverside apartments to rustic mountain cabin retreats. Unforgettable experiences await at every destination.</p>
         </div>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {

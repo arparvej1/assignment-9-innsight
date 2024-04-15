@@ -17,7 +17,7 @@ const ErrorPage = () => {
             <div className='flex flex-col justify-center items-center gap-2 p-4'>
               <img className='max-w-96' src="https://i.ibb.co/qMSPP7h/image-404.jpg" alt="" />
               <h3 className='font-semibold text-3xl my-5'>Oops!!!! Page Not Found! </h3>
-              <Link className='btn mx-auto' to='/'>Go Back to Home</Link>
+              <Link className='btn mx-auto bg-[#7ac5fbab] hover:bg-[#7ac5fb] md:text-lg' to='/'>Go Back to Home</Link>
             </div>
           </div>
         </div>

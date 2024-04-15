@@ -37,7 +37,7 @@ const ApartmentsCompare = () => {
         <title> Apartment Compare | InnSight </title>
       </Helmet>
       <div>
-        <div className="bg-gray-100 w-full p-6 md:p-12 text-2xl md:text-5xl font-bold text-center rounded-3xl my-5">
+        <div className="bg-gray-100 w-full p-6 md:p-12 text-xl md:text-4xl lg:text-5xl font-bold text-center rounded-3xl my-5">
           {
             compareList.length > 1 ? `Compare ${compareList.length} Apartments` : 'Please select minimum 2 choose for compare.'
           }
@@ -148,7 +148,7 @@ const ApartmentsCompare = () => {
               :
               <>
                 <div className='flex flex-col justify-center items-center gap-2 p-4'>
-                  <Link className='btn mx-auto' to='/'>Go Back to Home</Link>
+                  <Link className='btn mx-auto bg-[#7ac5fbab] hover:bg-[#7ac5fb] md:text-lg' to='/'>Go Back to Home</Link>
                 </div>
               </>
           }
