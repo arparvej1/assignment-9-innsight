@@ -6,8 +6,8 @@ import { ToastContainer } from 'react-toastify';
 
 const Profile = () => {
   const { user, loginCheck } = useContext(AuthContext);
-
   useEffect(() => {
+    window.scrollTo(0, 0);
     loginCheck();
   }, []);
 

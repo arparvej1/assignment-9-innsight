@@ -14,18 +14,34 @@ import { Helmet } from 'react-helmet-async';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { IoIosArrowRoundForward, IoIosCalendar } from 'react-icons/io';
 import { AuthContext } from '../../provider/AuthProvider';
+import Blog from '../Blogs/Blog';
 
 
 const Home = () => {
   const { loginCheck } = useContext(AuthContext);
   const apartments = useLoaderData();
-  const [reviews, setReviews] = useState([])
+  const [reviews, setReviews] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     loginCheck();
     fetch('/review_data.json')
       .then(res => res.json())
       .then(data => {
         setReviews(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('/blogs_data.json')
+      .then(res => res.json())
+      .then(data => {
+        data.sort(function () { return 0.5 - Math.random() });
+        setBlogs(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -188,6 +204,26 @@ const Home = () => {
         </Swiper>
       </div>
       {/* ---------- slider review End ------------ */}
+      {/* blogs card section */}
+      <div>
+        <div className='my-10 text-center'>
+          <h3 className='font-bold text-2xl lg:text-3xl'>Blogs By InnSight</h3>
+          <p className='md:w-3/4 lg:1/2 mx-5 md:mx-auto mt-5'>
+            Experience unparalleled comfort and elegance with InnSight's curated accommodations, ranging from luxurious riverside apartments to rustic mountain cabin retreats. Unforgettable experiences await at every destination.</p>
+        </div>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+          {
+            blogs.slice(0, 3).map(blog => <Blog
+              key={blog.blogId}
+              blog={blog}
+            ></Blog>)
+          }
+        </div>
+        <div className='text-center my-5 md:my-10'>
+          <Link to='/blogs'
+            className='py-3 px-4 md:py-4 md:px-6 text-[#1266e3] font-semibold border-2 border-[#0fca984d] bg-[#0fca9826] hover:bg-[#0fca9870]'>Browse More Blogs</Link>
+        </div>
+      </div>
       <ToastContainer />
     </div>
   );

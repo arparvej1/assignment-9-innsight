@@ -21,10 +21,7 @@ const ApartmentsCard = ({ apartment }) => {
   }, []);
 
   const handleCompare = () => {
-    // console.log('click Compare', id, user.uid);
-
     const checkData = getStoredData(user.uid);
-
     if (checkData.length < 3) {
       if (checkData.includes(id)) {
         toast.warn('Already Add for Compare, Add Another Choose.');
@@ -54,7 +51,7 @@ const ApartmentsCard = ({ apartment }) => {
               <span className={`px-4 py-1  rounded-xl ${status === 'Sale' ? 'text-[#f74400] bg-[#f744001a]' : 'text-[#03a98a] bg-[#03a98a1a]'}`}>{status}</span></p>
             <h3 className='text-lg font-medium'>{estate_title}</h3>
           </div>
-          <h3 className='text-xl font-semibold'>{price}</h3>
+          <h3 className='text-xl font-bold'>{price}</h3>
         </div>
         <div className='flex flex-wrap md:justify-end gap-3'>
           <div className='flex items-center gap-2'>

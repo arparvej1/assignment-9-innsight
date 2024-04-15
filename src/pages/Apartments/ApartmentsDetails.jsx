@@ -17,6 +17,7 @@ const ApartmentsDetails = () => {
   const { loginCheck } = useContext(AuthContext);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     loginCheck();
   }, []);
 
