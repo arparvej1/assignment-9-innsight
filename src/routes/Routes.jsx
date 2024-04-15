@@ -13,6 +13,7 @@ import ApartmentsDetails from "../pages/Apartments/ApartmentsDetails";
 import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/Blogs/BlogDetails";
 import About from "../pages/About/About";
+import ApartmentsCompare from "../pages/Apartments/Compare/ApartmentsCompare";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <About></About>
+      },
+      {
+        path: 'compare',
+        element: <PrivateRoutes><ApartmentsCompare></ApartmentsCompare></PrivateRoutes>,
+        loader: () => fetch('/apartments_data.json')
       }
     ]
   },
