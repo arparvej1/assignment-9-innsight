@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet-async';
 
 
 const Register = () => {
-  const { createUser, signInWithGoogle, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, setAlreadyRegister, logOut } = useContext(AuthContext);
+  const { user, createUser, signInWithGoogle, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, alreadyRegister, setAlreadyRegister, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordMsg, setPasswordMsg] = useState('');
   const location = useLocation();
@@ -48,7 +48,6 @@ const Register = () => {
     // create user in firebase
     createUser(email, password)
       .then(result => {
-        console.log(result.user);
         setLoading(true);
         setAlreadyRegister(true);
         logOut();
@@ -97,6 +96,12 @@ const Register = () => {
   useEffect(() => {
     setFocus("fullName")
   }, [setFocus])
+
+  useEffect(() => {
+    if (user && !location.state && !alreadyRegister) {
+      navigate('/');
+    }
+  }, [user]);
 
   return (
     <>

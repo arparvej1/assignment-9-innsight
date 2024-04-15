@@ -22,6 +22,7 @@ const Home = () => {
   const apartments = useLoaderData();
   const [reviews, setReviews] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const randomApartments = apartments.sort(function () { return 0.5 - Math.random() });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -165,7 +166,7 @@ const Home = () => {
       </div>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {
-          apartments.sort(function () { return 0.5 - Math.random() }).map(apartment => <ApartmentsCard
+          randomApartments.map(apartment => <ApartmentsCard
             key={apartment.id}
             apartment={apartment}
           ></ApartmentsCard>)
@@ -219,7 +220,7 @@ const Home = () => {
             ></Blog>)
           }
         </div>
-        <div className='text-center my-5 md:my-10'>
+        <div className='text-center pt-5 md:pt-0 my-5 md:my-10'>
           <Link to='/blogs'
             className='py-3 px-4 md:py-4 md:px-6 text-[#1266e3] font-semibold border-2 border-[#0fca984d] bg-[#0fca9826] hover:bg-[#0fca9870]'>Browse More Blogs</Link>
         </div>

@@ -9,19 +9,24 @@ import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
-  const { signInUser, signInWithGoogle, signInWithGithub, registerCheck, setAlreadyLogin } = useContext(AuthContext);
+  const { user, signInUser, signInWithGoogle, signInWithGithub, registerCheck, setAlreadyLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loginFailedMsg, setLoginFailedMsg] = useState('');
   const location = useLocation();
 
-  useEffect(() => {
-    registerCheck();
-  }, []);
+
 
   const { register, setFocus } = useForm();
   useEffect(() => {
-    setFocus("focusEmail")
+    setFocus("focusEmail");
   }, [setFocus]);
+
+  useEffect(() => {
+    registerCheck();
+    if (user && !location.state) {
+      navigate('/');
+    }
+  }, [user]);
 
   const [passwordShow, setPasswordShow] = useState(false);
   const handlePasswordShow = () => {

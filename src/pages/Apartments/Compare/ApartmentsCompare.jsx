@@ -51,9 +51,9 @@ const ApartmentsCompare = () => {
                   <table className="table table-xs table-pin-rows table-pin-cols">
                     {/* <thead> */}
                     <tr>
-                      <th className="text-center text-xl md:text-3xl">Title: </th>
+                      <th className="text-center text-lg md:text-2xl lg:text-3xl">Title: </th>
                       {
-                        compareList.map(item => <th className="text-center text-xl md:text-3xl" key={item.id}>{item.estate_title}</th>)
+                        compareList.map(item => <th className="text-center text-lg md:text-2xl lg:text-3xl" key={item.id}>{item.estate_title}</th>)
                       }
                     </tr>
                     {/* </thead> */}
@@ -103,7 +103,7 @@ const ApartmentsCompare = () => {
                         {
                           compareList.map(item => <td key={item.id}>
                             <div className='flex items-center gap-2'>
-                              <span className='bg-[#edf1f9] rounded-full p-2'><IoIosBed /></span>
+                              <span className='bg-[#edf1f9] hidden md:block rounded-full p-2'><IoIosBed /></span>
                               <span>{item.beds} Beds</span>
                             </div>
                           </td>)
@@ -114,7 +114,7 @@ const ApartmentsCompare = () => {
                         {
                           compareList.map(item => <td key={item.id}>
                             <div className='flex items-center gap-2'>
-                              <span className='bg-[#edf1f9] rounded-full p-2'><FaBath /></span>
+                              <span className='bg-[#edf1f9] hidden md:block rounded-full p-2'><FaBath /></span>
                               <span>{item.baths} Baths</span>
                             </div>
                           </td>)
@@ -125,7 +125,7 @@ const ApartmentsCompare = () => {
                         {
                           compareList.map(item => <td key={item.id}>
                             <div className='flex items-center gap-2'>
-                              <span className='bg-[#edf1f9] rounded-full p-2'><FaArrowsAlt /></span>
+                              <span className='bg-[#edf1f9] hidden md:block rounded-full p-2'><FaArrowsAlt /></span>
                               <span>{item.area}</span>
                             </div>
                           </td>)
