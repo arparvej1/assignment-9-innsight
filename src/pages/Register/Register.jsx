@@ -185,7 +185,7 @@ const Register = () => {
                 onClick={handleLoginWithTwitter}
                 className="flex gap-2 btn border border-gray-200 bg-white"
               >
-                <FaTwitter className="text-2xl" />
+                <FaTwitter className="text-2xl text-[#1DA1F2]" />
                 Twitter
               </button>
             </div>
