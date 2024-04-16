@@ -59,6 +59,7 @@ const Login = () => {
     signInWithGoogle()
       .then(result => {
         console.log(result.user);
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
@@ -70,6 +71,7 @@ const Login = () => {
     signInWithTwitter()
       .then(result => {
         console.log(result.user);
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
@@ -81,6 +83,7 @@ const Login = () => {
     signInWithGithub()
       .then(result => {
         console.log(result.user);
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 
 const UpdateProfile = () => {
-  const { user, updateUserInfo, setLoading, setAvatarIcon, loginCheck } = useContext(AuthContext);
+  const { user, updateUserInfo, setLoading, setAvatarIcon, setAlreadyUpdate, loginCheck } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const UpdateProfile = () => {
         console.log('click Update');
         setLoading(false);
         navigate('/profile');
+        setAlreadyUpdate(true);
         setAvatarIcon(true);
       })
       .catch(error => {

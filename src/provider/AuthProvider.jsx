@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
   const [avatarIcon, setAvatarIcon] = useState(false);
   const [alreadyRegister, setAlreadyRegister] = useState(false);
   const [alreadyLogin, setAlreadyLogin] = useState(false);
+  const [alreadyUpdate, setAlreadyUpdate] = useState(false);
 
   const loginCheck = () => {
     if (alreadyLogin) {
@@ -88,6 +89,8 @@ const AuthProvider = ({ children }) => {
     registerCheck,
     alreadyRegister,
     setAlreadyRegister,
+    alreadyUpdate,
+    setAlreadyUpdate,
     setAvatarIcon,
     setLoading,
     createUser,

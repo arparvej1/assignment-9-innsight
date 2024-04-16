@@ -10,7 +10,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 
 const Register = () => {
-  const { user, createUser, signInWithGoogle, signInWithTwitter, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, alreadyRegister, setAlreadyRegister, logOut } = useContext(AuthContext);
+  const { user, createUser, signInWithGoogle, signInWithTwitter, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, setAlreadyLogin, alreadyRegister, setAlreadyRegister, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordMsg, setPasswordMsg] = useState('');
   const location = useLocation();
@@ -74,6 +74,7 @@ const Register = () => {
     signInWithGoogle()
       .then(result => {
         console.log(result.user);
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
@@ -85,6 +86,7 @@ const Register = () => {
     signInWithTwitter()
       .then(result => {
         console.log(result.user);
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
@@ -96,6 +98,7 @@ const Register = () => {
     signInWithGithub()
       .then(result => {
         console.log(result.user);
+        setAlreadyLogin(true);
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {

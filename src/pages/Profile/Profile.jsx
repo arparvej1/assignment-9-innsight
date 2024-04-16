@@ -2,13 +2,17 @@ import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Profile = () => {
-  const { user, loginCheck } = useContext(AuthContext);
+  const { user, loginCheck, alreadyUpdate, setAlreadyUpdate } = useContext(AuthContext);
   useEffect(() => {
     window.scrollTo(0, 0);
     loginCheck();
+    if (alreadyUpdate) {
+      toast.success('Successfully Update!');
+      setAlreadyUpdate(false);
+    }
   }, []);
 
   return (
