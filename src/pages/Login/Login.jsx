@@ -10,7 +10,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 
 const Login = () => {
-  const { user, signInUser, signInWithGoogle, signInWithTwitter, signInWithGithub, registerCheck, setAlreadyLogin } = useContext(AuthContext);
+  const { user, signInUser, signInWithGoogle, signInWithTwitter, signInWithGithub, registerCheck, setAlreadyLogin, textDot, setTextDot } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loginFailedMsg, setLoginFailedMsg] = useState('');
   const location = useLocation();
@@ -36,6 +36,7 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    setTextDot('...');
 
     // create user in firebase
     signInUser(email, password)
@@ -46,12 +47,14 @@ const Login = () => {
         e.target.reset();
         setLoginFailedMsg('');
         setAlreadyLogin(true);
+        setTextDot('');
         navigate(location?.state ? location.state : '/');
       })
       .catch(error => {
         console.log(error);
         toast.error('Email & Password Not Match!');
         setLoginFailedMsg('Please enter correct Email & Password.');
+        setTextDot('');
       });
   }
 
@@ -113,7 +116,7 @@ const Login = () => {
             <p className='pt-1 text-red-500'>{loginFailedMsg}</p>
           </div>
           <div>
-            <input type="submit" className="btn btn-primary w-full  font-semibold text-xl" />
+            <input type="submit" value={`Login${textDot}`} className="btn btn-primary w-full  font-semibold text-xl" />
           </div>
         </form>
         <div className="mt-4 text-sm text-gray-600 text-center">

@@ -16,6 +16,7 @@ const AuthProvider = ({ children }) => {
   const [alreadyRegister, setAlreadyRegister] = useState(false);
   const [alreadyLogin, setAlreadyLogin] = useState(false);
   const [alreadyUpdate, setAlreadyUpdate] = useState(false);
+  const [textDot, setTextDot] = useState('');
 
   const loginCheck = () => {
     if (alreadyLogin) {
@@ -99,7 +100,9 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     signInWithTwitter,
     signInWithGithub,
-    logOut
+    logOut,
+    textDot,
+    setTextDot
   }
 
   return (

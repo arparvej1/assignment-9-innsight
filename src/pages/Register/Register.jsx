@@ -10,7 +10,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 
 const Register = () => {
-  const { user, createUser, signInWithGoogle, signInWithTwitter, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, setAlreadyLogin, alreadyRegister, setAlreadyRegister, logOut } = useContext(AuthContext);
+  const { user, createUser, signInWithGoogle, signInWithTwitter, signInWithGithub, updateUserInfo, setAvatarIcon, setLoading, setAlreadyLogin, alreadyRegister, setAlreadyRegister, logOut, textDot, setTextDot } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordMsg, setPasswordMsg] = useState('');
   const location = useLocation();
@@ -46,6 +46,8 @@ const Register = () => {
       return;
     }
 
+    setTextDot('...');
+
     // create user in firebase
     createUser(email, password)
       .then(result => {
@@ -56,14 +58,17 @@ const Register = () => {
           .then(() => {
             setAvatarIcon(true);
             e.target.reset();
+            setTextDot('');
             console.log('Registration Successfully!');
             navigate(location?.state ? location.state : '/login');
           })
           .catch(error => {
+            setTextDot('');
             console.log(error);
           });
       })
       .catch(error => {
+        setTextDot('');
         toast.error('Registration failed!');
         console.log(error);
       });
@@ -147,7 +152,7 @@ const Register = () => {
             <p className='pt-1 text-red-500'>{passwordMsg}</p>
           </div>
           <div>
-            <input type="submit" className="btn btn-primary w-full font-semibold text-xl" />
+            <input type="submit" value={`Register${textDot}`} className="btn btn-primary w-full font-semibold text-xl" />
           </div>
         </form>
         <div className="mt-4 text-sm text-gray-600 text-center">
