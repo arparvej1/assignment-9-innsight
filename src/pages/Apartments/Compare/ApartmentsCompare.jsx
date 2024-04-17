@@ -65,7 +65,7 @@ const ApartmentsCompare = () => {
                         }
                       </tr>
                       <tr>
-                        <td>Status:</td>
+                        <td>Picture:</td>
                         {
                           compareList.map(item => <td className="" key={item.id}><img className=" rounded-xl" src={item.a_relevant_image} alt={item.estate_title} /></td>)
                         }
