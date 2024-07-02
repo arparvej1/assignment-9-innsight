@@ -28,12 +28,33 @@ Check out the live site [InnSight](https://assignment-9-innsight.web.app)
 
 ## Github Link
 
-Check out the link [here](https://github.com/programming-hero-web-course-4/b9a9-real-estate-arparvej1)
+Check out the link [here](https://github.com/arparvej1/assignment-9-innsight)
 
 
 ## How to Use
 
-1. Clone the repository:
+To run InnSight locally on your machine, follow these steps:
 
+### Prerequisites
+Make sure you have Node.js and npm installed on your machine.
+
+### Installation
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/programming-hero-web-course-4/b9a9-real-estate-arparvej1.git
+   git clone https://github.com/arparvej1/assignment-9-innsight.git
+
+2. **Navigate into the project directory:**
+   ```bash
+   cd assignment-9-innsight
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+2. **Running the Project:**
+   ```bash
+   npm run dev
+
+This command runs the app in development mode.
+Open http://localhost:5173 to view it in the browser.
